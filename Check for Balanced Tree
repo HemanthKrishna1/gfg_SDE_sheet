@@ -1,0 +1,18 @@
+class Solution{
+    public:
+    int check(Node* root, bool& flag){
+        if(!root) return 0;
+        int l_height = check(root->left, flag);
+        int r_height = check(root->right, flag);
+        if(abs(l_height - r_height) >1 ){
+            flag = true;
+        }
+        return max(l_height, r_height) + 1;
+    }
+    bool isBalanced(Node *root){
+        bool flag = false;
+        check(root,flag);
+        if(flag == true) return false;
+        return true;
+    }
+};
