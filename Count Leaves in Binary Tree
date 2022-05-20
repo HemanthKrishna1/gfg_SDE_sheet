@@ -1,0 +1,13 @@
+void myfunc(Node* root, int& sum){
+    if(!root) return;
+    if(root->left == NULL && root->right==NULL){
+        sum++;
+    }
+    if(root->left) myfunc(root->left, sum);
+    if(root->right) myfunc(root->right, sum);
+}
+int countLeaves(Node* root){
+    int sum =0;
+    myfunc(root, sum);
+    return sum;
+}
