@@ -1,0 +1,16 @@
+class Solution{
+public:	
+		
+	string removeDups(string S) 
+	{
+	    string ans= "";
+	    map<char,int> mpp;
+	    for(auto &it: S){
+	        if(mpp[it]==0){
+	            ans+=it;
+	            mpp[it]++;
+	        }
+	    }
+	    return ans;
+	}
+};
