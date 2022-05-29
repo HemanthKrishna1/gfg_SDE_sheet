@@ -1,0 +1,14 @@
+class Solution{
+    public:
+    // return true/false denoting whether the tree is Symmetric or not
+    bool myfunc(Node* left, Node* right){
+        if(left==NULL || right==NULL) return left==right;
+        if(left->data!=right->data) return false;
+        return myfunc(left->left, right->right);
+    }
+    bool isSymmetric(struct Node* root)
+    {
+        
+	    return myfunc(root->left, root->right);
+    }
+};
